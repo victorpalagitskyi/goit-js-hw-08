@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "description": "",
   "homepage": "https://victorpalagitskyi.github.io/goit-js-hw-08/",
+  "type": "module",
   "scripts": {
     "start": "parcel src/*.html",
     "build": "parcel build src/*.html --public-url /goit-js-hw-08/"
@@ -18,11 +19,14 @@
     "url": "https://victorpalagitskyi.github.io/goit-js-hw-08/issues"
   },
   "dependencies": {
+    "@vimeo/player": "^2.18.0",
+    "lodash.throttle": "^4.1.1",
     "modern-normalize": "^1.1.0",
     "simplelightbox": "^2.12.1"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.6.0",
+    "nodemon": "^2.0.20",
     "parcel": "^2.6.0",
     "parcel-reporter-clean-dist": "^1.0.4",
     "posthtml-include": "^1.7.4"
