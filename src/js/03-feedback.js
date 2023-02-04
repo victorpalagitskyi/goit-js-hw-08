@@ -33,9 +33,7 @@ if (currentState === undefined) {
     currentMessage.textContent = currentState.message
 }
 
-form.addEventListener("change", throttle(() => {
-    onFormData
-  }, 500))
+form.addEventListener("input", throttle(onFormData, 500))
 function onFormData(event) {
     if ((event.target.nodeName === "INPUT")) {
         C_mail = event.target.value
