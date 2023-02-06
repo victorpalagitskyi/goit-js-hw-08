@@ -1,15 +1,15 @@
-import throttle from 'lodash.throttle';
+// import throttle from 'lodash.throttle';
 const form = document.querySelector(".feedback-form")
-const S_key = "feedback-form-state"
+const S_KEY = "feedback-form-state"
 const currentEmail = document.querySelector("input")
 const currentMessage = document.querySelector("textarea")
-let C_mail = ""
-let C_message =""
+let c_Mail = ""
+let c_Message =""
 // ===============================================================
  function save(key, value) {
         try {
-            const S_Data = JSON.stringify(value);
-            localStorage.setItem(key, S_Data)
+            const s_Data = JSON.stringify(value);
+            localStorage.setItem(key, s_Data)
         } catch (err) {
             console.error(err)
         }
@@ -17,14 +17,14 @@ let C_message =""
     
  function load(key) {
         try {
-            const S_State = localStorage.getItem(key)
-            return S_State === null ? undefined : JSON.parse(S_State)
+            const s_State = localStorage.getItem(key)
+            return s_State === null ? undefined : JSON.parse(s_State)
         }
         catch (err) {
             console.error(err)
          }
  }
-const currentState = load(S_key)
+const currentState = load(S_KEY)
 if (currentState === undefined) {
     currentEmail.value = "",
         currentMessage.textContent = ""
@@ -32,18 +32,18 @@ if (currentState === undefined) {
     currentEmail.value = currentState.email
     currentMessage.textContent = currentState.message
 }
-
-form.addEventListener("input", throttle(onFormData, 500))
+// throttle(onFormData, 500))
+form.addEventListener("input", onFormData)
 function onFormData(event) {
     if ((event.target.nodeName === "INPUT")) {
-        C_mail = event.target.value
+        c_Mail = event.target.value
     }
     else {
-        C_message = event.target.value
+        c_Message = event.target.value
     }
-    save(S_key, {
-        email: C_mail,
-        message: C_message
+    save(S_KEY, {
+        email: c_Mail,
+        message: c_Message
     });
     
 }
@@ -58,7 +58,7 @@ form.addEventListener("submit", (event) => {
     console.log(currentState)
     email.value = "";
     message.value = "";
-    localStorage.removeItem(S_key)
+    localStorage.removeItem(S_KEY)
     
     })
 
