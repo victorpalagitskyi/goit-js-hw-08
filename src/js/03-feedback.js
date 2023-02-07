@@ -26,8 +26,8 @@ let c_Message = ""
             console.error(err)
          }
  }
- 
-const currentState = load(S_key)
+
+const currentState = load(S_KEY)
 if (currentState === undefined) {
     currentEmail.value = "",
         currentMessage.textContent = ""
