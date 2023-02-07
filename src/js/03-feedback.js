@@ -13,6 +13,8 @@ let c_Message = ""
         }
  }
 
+ 
+
  function load(key) {
         try {
             const s_State = localStorage.getItem(key)
