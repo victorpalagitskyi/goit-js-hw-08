@@ -1,6 +1,8 @@
 import throttle from 'lodash.throttle';
 const form = document.querySelector(".feedback-form")
 const S_KEY = "feedback-form-state"
+const currentEmail = document.querySelector("input")
+const currentMessage = document.querySelector("textarea")
 let c_Mail = ""
 let c_Message = ""
 // ===============================================================
@@ -13,7 +15,7 @@ let c_Message = ""
         }
  }
 
- 
+
 
  function load(key) {
         try {
@@ -24,7 +26,15 @@ let c_Message = ""
             console.error(err)
          }
  }
-
+ 
+const currentState = load(S_key)
+if (currentState === undefined) {
+    currentEmail.value = "",
+        currentMessage.textContent = ""
+} else {
+    currentEmail.value = currentState.email
+    currentMessage.textContent = currentState.message
+}
 
 
 form.addEventListener("input", throttle(onFormData, 500))
